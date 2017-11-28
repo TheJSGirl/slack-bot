@@ -6,10 +6,13 @@ const slackClient  = require('../server/slackClient');
 
 const server = http.createServer(service);
 
-const slackToken = 'xoxb-278486762437-myDmWHhdUEiPYWxib0IhhOVG';
+const slackToken = 'xoxb-278486762437-oMvn2BY93kOMWBQSoZmkh38v';
 const slackLogLevel = 'verbose';
 
-const rtm = slackClient.init(slackToken, slackLogLevel);
+const witToken = 'OXXXJ7CGYI7PS7O5A6HAGBIN4VXWNI4Q';
+const witClient = require('../server/witClient')(witToken);
+
+const rtm = slackClient.init(slackToken, slackLogLevel, witClient);
 rtm.start();
 
 //subscribe 
